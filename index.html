@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>💰 Зарплаты гильдии</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .search-box {
+            text-align: center;
+            margin: 30px 0;
+        }
+        input {
+            padding: 12px;
+            width: 300px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 12px 24px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #219653;
+        }
+        .player-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 10px;
+            display: none;
+        }
+        .player-info h3 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        .info-item {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .salary {
+            font-size: 24px;
+            font-weight: bold;
+            color: #27ae60;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .last-update {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            padding: 15px;
+            background: #ffebee;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Зарплаты гильдии Albion Online</h1>
+        
+        <div class="search-box">
+            <input type="text" id="nicknameInput" 
+                   placeholder="Введите ваш ник в игре..." 
+                   autofocus>
+            <button onclick="searchPlayer()">Найти зарплату</button>
+        </div>
+        
+        <div id="result" class="player-info">
+            <!-- Здесь появится информация об игроке -->
+        </div>
+        
+        <div class="last-update">
+            <p>Данные обновляются автоматически. Для поиска введите ваш ник.</p>
+        </div>
+    </div>
+
+    <script>
+        // Функция поиска игрока
+        function searchPlayer() {
+            const nickname = document.getElementById('nicknameInput').value.trim();
+            const resultDiv = document.getElementById('result');
+            
+            if (!nickname) {
+                resultDiv.innerHTML = '<div class="error">Введите ник игрока</div>';
+                resultDiv.style.display = 'block';
+                return;
+            }
+            
+            // Загружаем данные
+            fetch('data.json')
+                .then(response => {
+                    if (!response.ok) throw new Error('Данные не загружены');
+                    return response.json();
+                })
+                .then(data => {
+                    const player = data.players.find(p => 
+                        p.nickname.toLowerCase() === nickname.toLowerCase()
+                    );
+                    
+                    if (player) {
+                        // Отображаем информацию об игроке
+                        resultDiv.innerHTML = `
+                            <h3>👤 ${player.nickname}</h3>
+                            <div class="salary">${player.total_salary} серебра</div>
+                            <div class="info-item"><strong>Звание:</strong> ${player.rank}</div>
+                            <div class="info-item"><strong>Дней в гильдии:</strong> ${player.days_in_guild}</div>
+                            <div class="info-item"><strong>Рекрутер:</strong> ${player.is_recruiter ? 'Да' : 'Нет'}</div>
+                            <div class="info-item"><strong>Дата вступления:</strong> ${player.join_date}</div>
+                            <div class="last-update" style="margin-top: 20px;">
+                                <small>Обновлено: ${data.last_updated}</small>
+                            </div>
+                        `;
+                    } else {
+                        resultDiv.innerHTML = '<div class="error">Игрок не найден. Проверьте правильность ника.</div>';
+                    }
+                    
+                    resultDiv.style.display = 'block';
+                })
+                .catch(error => {
+                    resultDiv.innerHTML = '<div class="error">Ошибка загрузки данных. Попробуйте позже.</div>';
+                    resultDiv.style.display = 'block';
+                    console.error('Error:', error);
+                });
+        }
+        
+        // Поиск при нажатии Enter
+        document.getElementById('nicknameInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchPlayer();
+            }
+        });
+        
+        // Показываем последние данные при загрузке
+        window.addEventListener('DOMContentLoaded', () => {
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Данные загружены. Игроков:', data.players.length);
+                });
+        });
+    </script>
+</body>
+</html>
