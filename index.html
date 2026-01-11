@@ -3,178 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <title>💰 Зарплаты гильдии Russian Socialist Republic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        :root {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --bg-tertiary: #3a3a3a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #888;
+            --accent-green: #27ae60;
+            --accent-blue: #3498db;
+            --accent-red: #e74c3c;
+            --accent-purple: #9b59b6;
+            --accent-orange: #e67e22;
+            --border-color: #444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
-            background: #f5f5f5;
         }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+        
         h1 {
-            color: #2c3e50;
+            color: var(--accent-green);
             text-align: center;
             margin-bottom: 30px;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            padding: 0 10px;
         }
+        
         .search-box {
             text-align: center;
             margin: 30px 0;
+            padding: 0 10px;
         }
+        
+        .search-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .search-input-group {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
         input {
-            padding: 12px;
-            width: 300px;
+            padding: 15px;
+            width: 100%;
+            max-width: 400px;
             font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            margin-right: 10px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transition: border-color 0.3s ease;
         }
+        
+        input:focus {
+            border-color: var(--accent-green);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+        }
+        
         button {
-            padding: 12px 24px;
-            background: #27ae60;
+            padding: 15px 30px;
+            background: var(--accent-green);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
             font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+            white-space: nowrap;
         }
+        
         button:hover {
             background: #219653;
         }
+        
+        button:active {
+            transform: scale(0.98);
+        }
+        
         .player-info {
             margin-top: 30px;
-            padding: 20px;
-            background: #e8f5e9;
-            border-radius: 10px;
+            padding: 25px;
+            background: var(--bg-tertiary);
+            border-radius: 15px;
             display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        
         .player-info h3 {
-            color: #27ae60;
-            margin-top: 0;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
         }
-        .info-item {
-            margin: 10px 0;
-            font-size: 16px;
-        }
+        
         .salary {
-            font-size: 24px;
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: bold;
-            color: #27ae60;
+            color: var(--accent-green);
             text-align: center;
-            margin: 20px 0;
-        }
-        .last-update {
-            text-align: center;
-            color: #7f8c8d;
-            font-size: 14px;
-            margin-top: 30px;
-        }
-        .error {
-            color: #e74c3c;
-            text-align: center;
+            margin: 25px 0;
             padding: 15px;
-            background: #ffebee;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        .history-section {
-            margin-top: 30px;
-            padding: 20px;
-            background: #f8f9fa;
+            background: rgba(39, 174, 96, 0.1);
             border-radius: 10px;
-            display: none;
+            border: 2px solid rgba(39, 174, 96, 0.3);
         }
-        .history-section h4 {
-            color: #2c3e50;
-            margin-top: 0;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-        }
-        .history-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        .history-table th {
-            background-color: #2c3e50;
-            color: white;
-            padding: 12px;
-            text-align: left;
-        }
-        .history-table td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .history-table tr:hover {
-            background-color: #f1f1f1;
-        }
-        .positive-amount {
-            color: #27ae60;
-            font-weight: bold;
-        }
-        .negative-amount {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-        .neutral-amount {
-            color: #7f8c8d;
-            font-weight: bold;
-        }
-        .operation-type {
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .operation-type-nachislenie {
-            background-color: #3498db;
-            color: white;
-        }
-        .operation-type-vyplata {
-            background-color: #2ecc71;
-            color: white;
-        }
-        .operation-type-nagrada {
-            background-color: #9b59b6;
-            color: white;
-        }
-        .operation-type-otmena {
-            background-color: #e67e22;
-            color: white;
-        }
-        .empty-history {
-            text-align: center;
-            color: #7f8c8d;
-            padding: 20px;
-            font-style: italic;
-        }
+        
         .total-summary {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-            padding: 15px;
-            background: #e3f2fd;
-            border-radius: 8px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
         }
+        
         .summary-item {
             text-align: center;
-            flex: 1;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
         }
+        
         .summary-value {
-            font-size: 18px;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             font-weight: bold;
-            color: #2c3e50;
+            color: var(--accent-green);
+            margin-bottom: 5px;
         }
+        
         .summary-label {
             font-size: 14px;
-            color: #7f8c8d;
-            margin-top: 5px;
+            color: var(--text-secondary);
+        }
+        
+        .info-grid {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .info-item {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-green);
+        }
+        
+        .info-item strong {
+            color: var(--accent-green);
+            margin-right: 5px;
+        }
+        
+        .last-update {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 30px;
+            padding: 15px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+        
+        .error {
+            color: var(--accent-red);
+            text-align: center;
+            padding: 20px;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid rgba(231, 76, 60, 0.3);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Анимация появления */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .player-info, .error {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Стили для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .player-info {
+                padding: 20px 15px;
+            }
+            
+            .total-summary {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+            
+            button {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            input {
+                max-width: 100%;
+            }
+        }
+        
+        /* Стили для планшетов */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .total-summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Стили для десктопов */
+        @media (min-width: 769px) {
+            .total-summary {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Улучшения для accessibility */
+        button:focus, input:focus {
+            outline: 3px solid var(--accent-green);
+            outline-offset: 2px;
+        }
+        
+        /* Улучшение читаемости для слабовидящих */
+        @media (prefers-contrast: high) {
+            :root {
+                --bg-primary: #000;
+                --bg-secondary: #111;
+                --bg-tertiary: #222;
+                --text-primary: #fff;
+                --border-color: #555;
+            }
+        }
+        
+        /* Поддержка темной темы системных настроек */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #0a0a0a;
+                --bg-secondary: #1a1a1a;
+                --bg-tertiary: #2a2a2a;
+            }
+        }
+        
+        /* Эффект для кнопки при загрузке */
+        button.loading {
+            position: relative;
+            color: transparent;
+        }
+        
+        button.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-top: -10px;
+            margin-left: -10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
     </style>
 </head>
@@ -183,18 +330,23 @@
         <h1>💰 Зарплаты гильдии Russian Socialist Republic</h1>
         
         <div class="search-box">
-            <input type="text" id="nicknameInput" 
-                   placeholder="Введите ваш ник в игре..." 
-                   autofocus>
-            <button onclick="searchPlayer()">Найти зарплату и историю</button>
+            <div class="search-input-group">
+                <input type="text" id="nicknameInput" 
+                       placeholder="Введите ваш ник в игре..." 
+                       autofocus
+                       aria-label="Введите никнейм игрока для поиска">
+                <button onclick="searchPlayer()" id="searchButton" aria-label="Найти зарплату игрока">
+                    Найти зарплату
+                </button>
+            </div>
         </div>
         
-        <div id="result" class="player-info">
+        <div id="result" class="player-info" role="region" aria-live="polite">
             <!-- Здесь появится информация об игроке -->
         </div>
         
-        <div id="history" class="history-section">
-            <!-- Здесь появится история транзакций -->
+        <div id="error" class="error" style="display: none;" role="alert">
+            <!-- Здесь появится сообщение об ошибке -->
         </div>
         
         <div class="last-update">
@@ -203,231 +355,195 @@
     </div>
 
     <script>
+        // Глобальные переменные для данных
+        let playerData = null;
+        let isLoading = false;
+        
+        // Загрузка данных при загрузке страницы
+        window.addEventListener('DOMContentLoaded', () => {
+            loadData();
+        });
+        
+        // Загрузка данных из JSON файла
+        async function loadData() {
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) {
+                    throw new Error('Не удалось загрузить данные');
+                }
+                playerData = await response.json();
+                console.log('Данные загружены. Игроков:', playerData.players.length);
+            } catch (error) {
+                console.error('Ошибка загрузки данных:', error);
+                showError('Ошибка загрузки данных. Попробуйте обновить страницу.');
+            }
+        }
+        
         // Функция поиска игрока
         function searchPlayer() {
+            if (isLoading) return;
+            
             const nickname = document.getElementById('nicknameInput').value.trim();
             const resultDiv = document.getElementById('result');
-            const historyDiv = document.getElementById('history');
+            const errorDiv = document.getElementById('error');
+            const searchBtn = document.getElementById('searchButton');
+            
+            // Скрыть предыдущие результаты
+            resultDiv.style.display = 'none';
+            errorDiv.style.display = 'none';
             
             if (!nickname) {
-                resultDiv.innerHTML = '<div class="error">Введите ник игрока</div>';
-                resultDiv.style.display = 'block';
-                historyDiv.style.display = 'none';
+                showError('Введите ник игрока для поиска');
                 return;
             }
             
-            // Загружаем основные данные
-            fetch('data.json')
-                .then(response => {
-                    if (!response.ok) throw new Error('Данные не загружены');
-                    return response.json();
-                })
-                .then(data => {
-                    const player = data.players.find(p => 
-                        p.nickname.toLowerCase() === nickname.toLowerCase()
-                    );
-                    
-                    if (player) {
-                        // Отображаем информацию об игроке
-                        resultDiv.innerHTML = `
-                            <h3>👤 ${player.nickname}</h3>
-                            <div class="salary">${player.total_salary} серебра</div>
-                            <div class="total-summary">
-                                <div class="summary-item">
-                                    <div class="summary-value">${player.rank}</div>
-                                    <div class="summary-label">Текущее звание</div>
-                                </div>
-                                <div class="summary-item">
-                                    <div class="summary-value">${player.days_in_guild}</div>
-                                    <div class="summary-label">Дней в гильдии</div>
-                                </div>
-                                <div class="summary-item">
-                                    <div class="summary-value">${player.is_recruiter ? 'Да' : 'Нет'}</div>
-                                    <div class="summary-label">Рекрутер</div>
-                                </div>
-                            </div>
-                            <div class="info-item"><strong>Дата вступления:</strong> ${player.join_date}</div>
-                            <div class="last-update" style="margin-top: 20px;">
-                                <small>Обновлено: ${data.last_updated}</small>
-                            </div>
-                        `;
-                        
-                        // Загружаем историю для этого игрока
-                        loadPlayerHistory(player.nickname);
-                        
-                    } else {
-                        resultDiv.innerHTML = '<div class="error">Игрок не найден. Проверьте правильность ника.</div>';
-                        historyDiv.style.display = 'none';
-                    }
-                    
-                    resultDiv.style.display = 'block';
-                })
-                .catch(error => {
-                    resultDiv.innerHTML = '<div class="error">Ошибка загрузки данных. Попробуйте позже.</div>';
-                    resultDiv.style.display = 'block';
-                    historyDiv.style.display = 'none';
-                    console.error('Error:', error);
-                });
-        }
-        
-        // Функция загрузки истории игрока
-        function loadPlayerHistory(nickname) {
-            const historyDiv = document.getElementById('history');
+            if (!playerData) {
+                showError('Данные еще загружаются. Подождите немного...');
+                return;
+            }
             
-            fetch('history.json')
-                .then(response => {
-                    if (!response.ok) throw new Error('История не загружена');
-                    return response.json();
-                })
-                .then(historyData => {
-                    // Фильтруем историю по нику игрока
-                    const playerHistory = historyData.history.filter(item => 
-                        item.player_nickname.toLowerCase() === nickname.toLowerCase()
-                    );
-                    
-                    // Сортируем по дате (сначала новые)
-                    playerHistory.sort((a, b) => new Date(b.operation_date) - new Date(a.operation_date));
-                    
-                    // Рассчитываем статистику
-                    let totalEarned = 0;
-                    let totalPaid = 0;
-                    let transactionCount = playerHistory.length;
-                    
-                    playerHistory.forEach(item => {
-                        if (item.operation_type === 'Начисление' || item.operation_type === 'Награда рекрутера') {
-                            totalEarned += item.amount;
-                        } else if (item.operation_type === 'Выплата') {
-                            totalPaid += item.amount;
-                        }
-                    });
-                    
-                    if (playerHistory.length > 0) {
-                        let historyHTML = `
-                            <h4>📜 История операций игрока ${nickname}</h4>
-                            <div class="total-summary">
-                                <div class="summary-item">
-                                    <div class="summary-value">${transactionCount}</div>
-                                    <div class="summary-label">Всего операций</div>
-                                </div>
-                                <div class="summary-item">
-                                    <div class="summary-value">${totalEarned} серебра</div>
-                                    <div class="summary-label">Всего заработано</div>
-                                </div>
-                                <div class="summary-item">
-                                    <div class="summary-value">${totalPaid} серебра</div>
-                                    <div class="summary-label">Всего выплачено</div>
-                                </div>
-                            </div>
-                            <table class="history-table">
-                                <thead>
-                                    <tr>
-                                        <th>Дата</th>
-                                        <th>Тип операции</th>
-                                        <th>Сумма</th>
-                                        <th>Комментарий</th>
-                                    </tr>
-                                </thead>
-                                <tbody>`;
-                        
-                        playerHistory.forEach(item => {
-                            // Определяем класс для типа операции
-                            let operationClass = '';
-                            switch(item.operation_type) {
-                                case 'Начисление':
-                                    operationClass = 'operation-type-nachislenie';
-                                    break;
-                                case 'Выплата':
-                                    operationClass = 'operation-type-vyplata';
-                                    break;
-                                case 'Награда рекрутера':
-                                    operationClass = 'operation-type-nagrada';
-                                    break;
-                                case 'Отмена начисления':
-                                case 'Отмена выплаты':
-                                    operationClass = 'operation-type-otmena';
-                                    break;
-                                default:
-                                    operationClass = '';
-                            }
-                            
-                            // Определяем класс для суммы
-                            let amountClass = '';
-                            if (item.amount > 0) {
-                                amountClass = 'positive-amount';
-                            } else if (item.amount < 0) {
-                                amountClass = 'negative-amount';
-                            } else {
-                                amountClass = 'neutral-amount';
-                            }
-                            
-                            // Форматируем дату
-                            const date = new Date(item.operation_date);
-                            const formattedDate = date.toLocaleDateString('ru-RU', {
-                                day: '2-digit',
-                                month: '2-digit',
-                                year: 'numeric',
-                                hour: '2-digit',
-                                minute: '2-digit'
-                            });
-                            
-                            // Форматируем сумму со знаком
-                            const formattedAmount = item.amount > 0 ? `+${item.amount}` : item.amount;
-                            
-                            // Добавляем информацию о часах активности, если есть
-                            let comment = item.comment || '';
-                            if (item.hours && item.hours > 0 && item.activity_name) {
-                                comment += ` (${item.activity_name}, ${item.hours} час.)`;
-                            }
-                            
-                            historyHTML += `
-                                <tr>
-                                    <td>${formattedDate}</td>
-                                    <td><span class="operation-type ${operationClass}">${item.operation_type}</span></td>
-                                    <td class="${amountClass}">${formattedAmount} серебра</td>
-                                    <td>${comment}</td>
-                                </tr>`;
-                        });
-                        
-                        historyHTML += `
-                                </tbody>
-                            </table>`;
-                        
-                        historyDiv.innerHTML = historyHTML;
-                    } else {
-                        historyDiv.innerHTML = `
-                            <h4>📜 История операций игрока ${nickname}</h4>
-                            <div class="empty-history">
-                                <p>История операций отсутствует</p>
-                            </div>`;
-                    }
-                    
-                    historyDiv.style.display = 'block';
-                })
-                .catch(error => {
-                    historyDiv.innerHTML = `
-                        <h4>📜 История операций</h4>
-                        <div class="empty-history">
-                            <p>Не удалось загрузить историю операций</p>
-                        </div>`;
-                    historyDiv.style.display = 'block';
-                    console.error('Error loading history:', error);
-                });
+            // Показать состояние загрузки на кнопке
+            searchBtn.textContent = 'Поиск...';
+            searchBtn.classList.add('loading');
+            searchBtn.disabled = true;
+            isLoading = true;
+            
+            // Имитация задержки для лучшего UX
+            setTimeout(() => {
+                performSearch(nickname);
+                
+                // Сбросить состояние кнопки
+                searchBtn.textContent = 'Найти зарплату';
+                searchBtn.classList.remove('loading');
+                searchBtn.disabled = false;
+                isLoading = false;
+            }, 300);
         }
         
-        // Поиск при нажатии Enter
-        document.getElementById('nicknameInput').addEventListener('keypress', function(e) {
+        // Выполнение поиска
+        function performSearch(nickname) {
+            const player = findPlayer(nickname);
+            
+            if (player) {
+                displayPlayerInfo(player);
+            } else {
+                showError(`Игрок "${nickname}" не найден. Проверьте правильность ника.`);
+            }
+        }
+        
+        // Поиск игрока (регистронезависимый)
+        function findPlayer(nickname) {
+            return playerData.players.find(p => 
+                p.nickname.toLowerCase() === nickname.toLowerCase()
+            );
+        }
+        
+        // Отображение информации об игроке
+        function displayPlayerInfo(player) {
+            const resultDiv = document.getElementById('result');
+            const errorDiv = document.getElementById('error');
+            
+            // Скрыть ошибку если была показана
+            errorDiv.style.display = 'none';
+            
+            // Форматирование даты вступления
+            const joinDate = new Date(player.join_date);
+            const formattedJoinDate = joinDate.toLocaleDateString('ru-RU', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+            
+            // Расчет дней в гильдии (если не предоставлено)
+            const daysInGuild = player.days_in_guild || 
+                Math.floor((new Date() - joinDate) / (1000 * 60 * 60 * 24));
+            
+            resultDiv.innerHTML = `
+                <h3>👤 ${player.nickname}</h3>
+                <div class="salary">${formatNumber(player.total_salary)} серебра</div>
+                <div class="total-summary">
+                    <div class="summary-item">
+                        <div class="summary-value">${player.rank}</div>
+                        <div class="summary-label">Текущее звание</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${daysInGuild}</div>
+                        <div class="summary-label">Дней в гильдии</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${player.is_recruiter ? 'Да' : 'Нет'}</div>
+                        <div class="summary-label">Рекрутер</div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Дата вступления:</strong> ${formattedJoinDate}
+                    </div>
+                    ${player.is_recruiter ? `
+                    <div class="info-item">
+                        <strong>Статус:</strong> Активный рекрутер
+                    </div>
+                    ` : ''}
+                </div>
+                <div class="last-update">
+                    <small>Обновлено: ${playerData.last_updated || 'неизвестно'}</small>
+                </div>
+            `;
+            
+            resultDiv.style.display = 'block';
+            
+            // Скролл к результатам на мобильных устройствах
+            if (window.innerWidth < 768) {
+                resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Показать ошибку
+        function showError(message) {
+            const errorDiv = document.getElementById('error');
+            const resultDiv = document.getElementById('result');
+            
+            resultDiv.style.display = 'none';
+            errorDiv.innerHTML = message;
+            errorDiv.style.display = 'block';
+            
+            // Скролл к ошибке на мобильных устройствах
+            if (window.innerWidth < 768) {
+                errorDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Форматирование чисел с пробелами
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        }
+        
+        // Поиск по нажатию Enter
+        document.getElementById('nicknameInput').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 searchPlayer();
             }
         });
         
-        // Показываем последние данные при загрузке
-        window.addEventListener('DOMContentLoaded', () => {
-            fetch('data.json')
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Данные загружены. Игроков:', data.players.length);
-                });
+        // Автофокус на поле ввода при загрузке (для мобильных клавиатур)
+        if ('virtualKeyboard' in navigator) {
+            document.getElementById('nicknameInput').addEventListener('focus', () => {
+                navigator.virtualKeyboard.show();
+            });
+        }
+        
+        // Обновление данных каждые 5 минут
+        setInterval(() => {
+            if (document.visibilityState === 'visible') {
+                loadData();
+            }
+        }, 5 * 60 * 1000);
+        
+        // Обновление данных при возвращении на вкладку
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                loadData();
+            }
         });
     </script>
 </body>
