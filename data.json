@@ -1,24 +1,64 @@
 {
     "currency": "серебра",
-    "last_updated": "09.01.2026 01:40",
+    "last_updated": "11.01.2026 17:38",
     "players": [
         {
-            "days_in_guild": 0,
+            "days_in_guild": 351,
             "is_recruiter": false,
-            "join_date": "2026-01-09",
-            "nickname": "AtilusPro",
+            "join_date": "2025-01-26",
+            "nickname": "AtliusPro",
             "rank": "главнокомандующий",
-            "total_salary": 200000
+            "total_salary": 50000
         },
         {
-            "days_in_guild": 0,
+            "days_in_guild": 134,
             "is_recruiter": false,
-            "join_date": "2026-01-09",
+            "join_date": "2025-08-31",
             "nickname": "BaelRoz",
+            "rank": "маршал",
+            "total_salary": 50000
+        },
+        {
+            "days_in_guild": 2,
+            "is_recruiter": false,
+            "join_date": "2026-01-10",
+            "nickname": "ByrDuk",
             "rank": "новобранец",
-            "total_salary": 200000
+            "total_salary": 50000
+        },
+        {
+            "days_in_guild": 1,
+            "is_recruiter": false,
+            "join_date": "2026-01-11",
+            "nickname": "HeshRui",
+            "rank": "новобранец",
+            "total_salary": 0
+        },
+        {
+            "days_in_guild": 1,
+            "is_recruiter": false,
+            "join_date": "2026-01-11",
+            "nickname": "Korezhok228",
+            "rank": "новобранец",
+            "total_salary": 50000
+        },
+        {
+            "days_in_guild": 4,
+            "is_recruiter": false,
+            "join_date": "2026-01-08",
+            "nickname": "Shushuk",
+            "rank": "новобранец",
+            "total_salary": 50000
+        },
+        {
+            "days_in_guild": 2,
+            "is_recruiter": false,
+            "join_date": "2026-01-10",
+            "nickname": "SHmiSHnoy",
+            "rank": "сержант",
+            "total_salary": 50000
         }
     ],
-    "total_players": 2,
-    "total_salary_pool": 400000
+    "total_players": 7,
+    "total_salary_pool": 300000
 }
