@@ -2,13 +2,163 @@
     "currency": "серебра",
     "history": [
         {
+            "activity_name": "",
+            "amount": 350000,
+            "comment": "Выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-11 19:18:11",
+            "operation_type": "Выплата",
+            "player_nickname": "BaelRoz",
+            "player_rank": "маршал"
+        },
+        {
+            "activity_name": "",
+            "amount": 350000,
+            "comment": "Выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-11 19:16:34",
+            "operation_type": "Выплата",
+            "player_nickname": "ByrDuk",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "",
+            "amount": 300000,
+            "comment": "Выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-11 19:15:33",
+            "operation_type": "Выплата",
+            "player_nickname": "HeshRui",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "",
+            "amount": 350000,
+            "comment": "Выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-11 19:15:00",
+            "operation_type": "Выплата",
+            "player_nickname": "Shushuk",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "",
+            "amount": 750000,
+            "comment": "Выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-11 19:14:23",
+            "operation_type": "Выплата",
+            "player_nickname": "Korezhok228",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "",
+            "amount": 350000,
+            "comment": "Выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-11 19:13:24",
+            "operation_type": "Выплата",
+            "player_nickname": "SHmiSHnoy",
+            "player_rank": "сержант"
+        },
+        {
+            "activity_name": "Статик(чёрный)",
+            "amount": 300000,
+            "comment": "Активность: Статик(чёрный) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-11 19:09:02",
+            "operation_type": "Начисление",
+            "player_nickname": "AtilusPro",
+            "player_rank": "главнокомандующий"
+        },
+        {
+            "activity_name": "Статик(чёрный)",
+            "amount": 300000,
+            "comment": "Активность: Статик(чёрный) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-11 19:09:02",
+            "operation_type": "Начисление",
+            "player_nickname": "BaelRoz",
+            "player_rank": "маршал"
+        },
+        {
+            "activity_name": "Статик(чёрный)",
+            "amount": 300000,
+            "comment": "Активность: Статик(чёрный) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-11 19:09:02",
+            "operation_type": "Начисление",
+            "player_nickname": "ByrDuk",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Статик(чёрный)",
+            "amount": 300000,
+            "comment": "Активность: Статик(чёрный) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-11 19:09:02",
+            "operation_type": "Начисление",
+            "player_nickname": "HeshRui",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Статик(чёрный)",
+            "amount": 300000,
+            "comment": "Активность: Статик(чёрный) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-11 19:09:02",
+            "operation_type": "Начисление",
+            "player_nickname": "Pahika",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Статик(чёрный)",
+            "amount": 300000,
+            "comment": "Активность: Статик(чёрный) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-11 19:09:02",
+            "operation_type": "Начисление",
+            "player_nickname": "SHmiSHnoy",
+            "player_rank": "сержант"
+        },
+        {
+            "activity_name": "Статик(чёрный)",
+            "amount": 300000,
+            "comment": "Активность: Статик(чёрный) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-11 19:09:02",
+            "operation_type": "Начисление",
+            "player_nickname": "Shushuk",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Статик(чёрный)",
+            "amount": 300000,
+            "comment": "Активность: Статик(чёрный) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-11 19:09:02",
+            "operation_type": "Начисление",
+            "player_nickname": "Korezhok228",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Награда за вступление",
+            "amount": 400000,
+            "comment": "Активность: Награда за вступление (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-11 16:31:29",
+            "operation_type": "Начисление",
+            "player_nickname": "Korezhok228",
+            "player_rank": "новобранец"
+        },
+        {
             "activity_name": "Ежедневная зарплата",
             "amount": 50000,
             "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
             "hours": 1,
             "operation_date": "2026-01-11 14:30:40",
             "operation_type": "Начисление",
-            "player_nickname": "AtliusPro",
+            "player_nickname": "AtilusPro",
             "player_rank": "главнокомандующий"
         },
         {
@@ -62,8 +212,8 @@
             "player_rank": "новобранец"
         }
     ],
-    "last_updated": "11.01.2026 17:38",
-    "total_earned": 300000,
-    "total_paid": 0,
-    "total_records": 6
+    "last_updated": "11.01.2026 22:44",
+    "total_earned": 3100000,
+    "total_paid": 2450000,
+    "total_records": 21
 }

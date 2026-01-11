@@ -1,14 +1,14 @@
 {
     "currency": "серебра",
-    "last_updated": "11.01.2026 17:38",
+    "last_updated": "11.01.2026 22:44",
     "players": [
         {
             "days_in_guild": 351,
             "is_recruiter": false,
             "join_date": "2025-01-26",
-            "nickname": "AtliusPro",
+            "nickname": "AtilusPro",
             "rank": "главнокомандующий",
-            "total_salary": 50000
+            "total_salary": 350000
         },
         {
             "days_in_guild": 134,
@@ -16,7 +16,7 @@
             "join_date": "2025-08-31",
             "nickname": "BaelRoz",
             "rank": "маршал",
-            "total_salary": 50000
+            "total_salary": 0
         },
         {
             "days_in_guild": 2,
@@ -24,7 +24,7 @@
             "join_date": "2026-01-10",
             "nickname": "ByrDuk",
             "rank": "новобранец",
-            "total_salary": 50000
+            "total_salary": 0
         },
         {
             "days_in_guild": 1,
@@ -40,7 +40,15 @@
             "join_date": "2026-01-11",
             "nickname": "Korezhok228",
             "rank": "новобранец",
-            "total_salary": 50000
+            "total_salary": 0
+        },
+        {
+            "days_in_guild": 1,
+            "is_recruiter": false,
+            "join_date": "2026-01-11",
+            "nickname": "Pahika",
+            "rank": "новобранец",
+            "total_salary": 300000
         },
         {
             "days_in_guild": 4,
@@ -48,7 +56,7 @@
             "join_date": "2026-01-08",
             "nickname": "Shushuk",
             "rank": "новобранец",
-            "total_salary": 50000
+            "total_salary": 0
         },
         {
             "days_in_guild": 2,
@@ -56,9 +64,9 @@
             "join_date": "2026-01-10",
             "nickname": "SHmiSHnoy",
             "rank": "сержант",
-            "total_salary": 50000
+            "total_salary": 0
         }
     ],
-    "total_players": 7,
-    "total_salary_pool": 300000
+    "total_players": 8,
+    "total_salary_pool": 650000
 }
