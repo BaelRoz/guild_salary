@@ -2,351 +2,426 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>💰 Зарплаты гильдии Russian Socialist Republic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 Зарплаты гильдии Russian Socialist Republic</title>
     <style>
         :root {
-            --bg-primary: #1a1a1a;
-            --bg-secondary: #2d2d2d;
-            --bg-tertiary: #3a3a3a;
-            --text-primary: #e0e0e0;
-            --text-secondary: #888;
-            --accent-green: #27ae60;
-            --accent-blue: #3498db;
-            --accent-red: #e74c3c;
-            --accent-purple: #9b59b6;
-            --accent-orange: #e67e22;
-            --border-color: #444;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --container-bg: #f5f5f5;
+            --header-color: #2c3e50;
+            --primary-color: #27ae60;
+            --primary-hover: #219653;
+            --error-bg: #ffebee;
+            --error-color: #e74c3c;
+            --player-info-bg: #e8f5e9;
+            --history-bg: #ffffff;
+            --table-header-bg: #f0f0f0;
+            --table-border: #ddd;
+            --table-hover: #f9f9f9;
+            --summary-bg: #e3f2fd;
+            --shadow: rgba(0,0,0,0.1);
+            --muted-color: #7f8c8d;
+            --input-bg: #ffffff;
+            --input-border: #ddd;
         }
-        
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --container-bg: #1e1e1e;
+            --header-color: #27ae60;
+            --primary-color: #2ecc71;
+            --primary-hover: #27ae60;
+            --error-bg: #331111;
+            --error-color: #ff6b6b;
+            --player-info-bg: #2a2a2a;
+            --history-bg: #2a2a2a;
+            --table-header-bg: #333;
+            --table-border: #444;
+            --table-hover: #333;
+            --summary-bg: #2c3e50;
+            --shadow: rgba(0,0,0,0.3);
+            --muted-color: #888;
+            --input-bg: #333;
+            --input-border: #444;
+        }
+
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        
-        .container {
+            font-family: Arial, sans-serif;
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
         }
-        
+
+        .container {
+            background: var(--container-bg);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow);
+            position: relative;
+        }
+
         h1 {
-            color: var(--accent-green);
+            color: var(--header-color);
             text-align: center;
             margin-bottom: 30px;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            padding: 0 10px;
+            font-size: 1.8rem;
         }
-        
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-hover);
+            transform: scale(1.1);
+        }
+
         .search-box {
             text-align: center;
             margin: 30px 0;
-            padding: 0 10px;
         }
-        
-        .search-input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-        
-        @media (min-width: 768px) {
-            .search-input-group {
-                flex-direction: row;
-                justify-content: center;
-            }
-        }
-        
+
         input {
-            padding: 15px;
+            padding: 12px;
             width: 100%;
-            max-width: 400px;
+            max-width: 300px;
             font-size: 16px;
-            border: 2px solid var(--border-color);
-            border-radius: 10px;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            transition: border-color 0.3s ease;
+            border: 2px solid var(--input-border);
+            border-radius: 8px;
+            margin-right: 10px;
+            background: var(--input-bg);
+            color: var(--text-color);
+            margin-bottom: 10px;
         }
-        
+
         input:focus {
-            border-color: var(--accent-green);
+            border-color: var(--primary-color);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
         }
-        
+
         button {
-            padding: 15px 30px;
-            background: var(--accent-green);
+            padding: 12px 24px;
+            background: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
             font-weight: bold;
-            transition: background 0.3s ease, transform 0.2s ease;
-            white-space: nowrap;
+            width: 100%;
+            max-width: 300px;
         }
-        
+
         button:hover {
-            background: #219653;
+            background: var(--primary-hover);
         }
-        
-        button:active {
-            transform: scale(0.98);
-        }
-        
+
         .player-info {
             margin-top: 30px;
-            padding: 25px;
-            background: var(--bg-tertiary);
-            border-radius: 15px;
-            display: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .player-info h3 {
-            color: var(--accent-green);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            text-align: center;
-        }
-        
-        .salary {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: bold;
-            color: var(--accent-green);
-            text-align: center;
-            margin: 25px 0;
-            padding: 15px;
-            background: rgba(39, 174, 96, 0.1);
-            border-radius: 10px;
-            border: 2px solid rgba(39, 174, 96, 0.3);
-        }
-        
-        .total-summary {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
             padding: 20px;
-            background: var(--bg-secondary);
+            background: var(--player-info-bg);
             border-radius: 10px;
+            display: none;
         }
-        
-        .summary-item {
-            text-align: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
+
+        .player-info h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
         }
-        
-        .summary-value {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            font-weight: bold;
-            color: var(--accent-green);
-            margin-bottom: 5px;
-        }
-        
-        .summary-label {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-        
-        .info-grid {
-            display: grid;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
+
         .info-item {
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.03);
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .salary {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(39, 174, 96, 0.1);
             border-radius: 8px;
-            border-left: 4px solid var(--accent-green);
         }
-        
-        .info-item strong {
-            color: var(--accent-green);
-            margin-right: 5px;
-        }
-        
+
         .last-update {
             text-align: center;
-            color: var(--text-secondary);
+            color: var(--muted-color);
             font-size: 14px;
             margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid var(--table-border);
+        }
+
+        .error {
+            color: var(--error-color);
+            text-align: center;
             padding: 15px;
-            background: var(--bg-secondary);
+            background: var(--error-bg);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .history-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--history-bg);
+            border-radius: 10px;
+            display: none;
+            border: 1px solid var(--table-border);
+        }
+
+        .history-section h4 {
+            color: var(--header-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--table-border);
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .history-table th {
+            background-color: var(--table-header-bg);
+            color: var(--text-color);
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .history-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--table-border);
+        }
+
+        .history-table tr:hover {
+            background-color: var(--table-hover);
+        }
+
+        .positive-amount {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .negative-amount {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .neutral-amount {
+            color: var(--muted-color);
+            font-weight: bold;
+        }
+
+        .operation-type {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .operation-type-nachislenie {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .operation-type-vyplata {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .operation-type-nagrada {
+            background-color: #9b59b6;
+            color: white;
+        }
+
+        .operation-type-otmena {
+            background-color: #e67e22;
+            color: white;
+        }
+
+        .empty-history {
+            text-align: center;
+            color: var(--muted-color);
+            padding: 20px;
+            font-style: italic;
+        }
+
+        .total-summary {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 15px;
+            background: var(--summary-bg);
             border-radius: 8px;
         }
-        
-        .error {
-            color: var(--accent-red);
+
+        .summary-item {
             text-align: center;
-            padding: 20px;
-            background: rgba(231, 76, 60, 0.1);
-            border-radius: 10px;
-            margin: 20px 0;
-            border: 2px solid rgba(231, 76, 60, 0.3);
+            flex: 1;
+            min-width: 100px;
         }
-        
+
+        .summary-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .summary-label {
+            font-size: 12px;
+            color: var(--muted-color);
+            margin-top: 5px;
+        }
+
         .loading {
             text-align: center;
-            padding: 40px;
-            color: var(--text-secondary);
+            padding: 20px;
+            color: var(--muted-color);
         }
-        
-        .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-top: 4px solid var(--accent-green);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Анимация появления */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+
+        /* Мобильная адаптация */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .player-info, .error {
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        /* Стили для очень маленьких экранов */
-        @media (max-width: 480px) {
+            
             .container {
                 padding: 15px;
             }
             
-            .player-info {
-                padding: 20px 15px;
+            h1 {
+                font-size: 1.5rem;
+                padding-right: 50px; /* Место для кнопки темы */
             }
             
-            .total-summary {
-                grid-template-columns: 1fr;
-                padding: 15px;
+            .theme-toggle {
+                top: 15px;
+                right: 15px;
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
             }
             
-            button {
+            input, button {
                 width: 100%;
-                max-width: 400px;
+                max-width: none;
+                margin-right: 0;
             }
             
-            input {
-                max-width: 100%;
+            .history-table {
+                font-size: 12px;
             }
-        }
-        
-        /* Стили для планшетов */
-        @media (min-width: 481px) and (max-width: 768px) {
+            
+            .history-table th,
+            .history-table td {
+                padding: 8px 4px;
+            }
+            
+            .operation-type {
+                min-width: 80px;
+                font-size: 10px;
+                padding: 3px 6px;
+            }
+            
             .total-summary {
-                grid-template-columns: repeat(2, 1fr);
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .summary-item {
+                min-width: auto;
             }
         }
-        
-        /* Стили для десктопов */
-        @media (min-width: 769px) {
-            .total-summary {
-                grid-template-columns: repeat(3, 1fr);
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            .history-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .salary {
+                font-size: 20px;
             }
         }
-        
-        /* Улучшения для accessibility */
-        button:focus, input:focus {
-            outline: 3px solid var(--accent-green);
-            outline-offset: 2px;
-        }
-        
-        /* Улучшение читаемости для слабовидящих */
-        @media (prefers-contrast: high) {
-            :root {
-                --bg-primary: #000;
-                --bg-secondary: #111;
-                --bg-tertiary: #222;
-                --text-primary: #fff;
-                --border-color: #555;
+
+        @media (max-width: 320px) {
+            .container {
+                padding: 10px;
             }
-        }
-        
-        /* Поддержка темной темы системных настроек */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-primary: #0a0a0a;
-                --bg-secondary: #1a1a1a;
-                --bg-tertiary: #2a2a2a;
+            
+            h1 {
+                font-size: 1.1rem;
             }
-        }
-        
-        /* Эффект для кнопки при загрузке */
-        button.loading {
-            position: relative;
-            color: transparent;
-        }
-        
-        button.loading::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            top: 50%;
-            left: 50%;
-            margin-top: -10px;
-            margin-left: -10px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top: 2px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+            
+            .theme-toggle {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <button class="theme-toggle" id="themeToggle" title="Сменить тему">
+            🌙
+        </button>
+        
         <h1>💰 Зарплаты гильдии Russian Socialist Republic</h1>
         
         <div class="search-box">
-            <div class="search-input-group">
-                <input type="text" id="nicknameInput" 
-                       placeholder="Введите ваш ник в игре..." 
-                       autofocus
-                       aria-label="Введите никнейм игрока для поиска">
-                <button onclick="searchPlayer()" id="searchButton" aria-label="Найти зарплату игрока">
-                    Найти зарплату
-                </button>
-            </div>
+            <input type="text" id="nicknameInput" 
+                   placeholder="Введите ваш ник в игре..." 
+                   autofocus>
+            <button onclick="searchPlayer()">Найти зарплату и историю</button>
         </div>
         
-        <div id="result" class="player-info" role="region" aria-live="polite">
+        <div id="result" class="player-info">
             <!-- Здесь появится информация об игроке -->
         </div>
         
-        <div id="error" class="error" style="display: none;" role="alert">
-            <!-- Здесь появится сообщение об ошибке -->
+        <div id="history" class="history-section">
+            <!-- Здесь появится история транзакций -->
         </div>
         
         <div class="last-update">
@@ -355,85 +430,106 @@
     </div>
 
     <script>
-        // Глобальные переменные для данных
-        let playerData = null;
-        let isLoading = false;
+        let currentData = null;
+        let currentHistory = null;
         
-        // Загрузка данных при загрузке страницы
-        window.addEventListener('DOMContentLoaded', () => {
-            loadData();
-        });
-        
-        // Загрузка данных из JSON файла
-        async function loadData() {
-            try {
-                const response = await fetch('data.json');
-                if (!response.ok) {
-                    throw new Error('Не удалось загрузить данные');
+        // Управление темой
+        function initTheme() {
+            const themeToggle = document.getElementById('themeToggle');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+            
+            // Установка начальной темы
+            let theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeButton(theme);
+            
+            // Обработчик клика по кнопке
+            themeToggle.addEventListener('click', () => {
+                theme = theme === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                updateThemeButton(theme);
+            });
+            
+            // Следим за системной темой
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (!localStorage.getItem('theme')) {
+                    theme = e.matches ? 'dark' : 'light';
+                    document.documentElement.setAttribute('data-theme', theme);
+                    updateThemeButton(theme);
                 }
-                playerData = await response.json();
-                console.log('Данные загружены. Игроков:', playerData.players.length);
-            } catch (error) {
-                console.error('Ошибка загрузки данных:', error);
-                showError('Ошибка загрузки данных. Попробуйте обновить страницу.');
-            }
+            });
         }
+        
+        function updateThemeButton(theme) {
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
+            themeToggle.title = theme === 'light' ? 'Включить темную тему' : 'Включить светлую тему';
+        }
+        
+        // Загрузка данных при запуске страницы
+        window.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            
+            // Обходим кэш браузера, добавляя timestamp
+            const cacheBuster = '?t=' + Date.now();
+            
+            Promise.all([
+                fetch('data.json' + cacheBuster).then(r => {
+                    if (!r.ok) throw new Error('Ошибка загрузки данных игроков');
+                    return r.json();
+                }),
+                fetch('history.json' + cacheBuster).then(r => {
+                    if (!r.ok) throw new Error('Ошибка загрузки истории');
+                    return r.json();
+                })
+            ])
+            .then(([data, history]) => {
+                currentData = data;
+                currentHistory = history;
+                console.log('Данные загружены:', data.players.length, 'игроков,', 
+                           history.history.length, 'записей истории');
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки данных:', error);
+                showError('Ошибка загрузки данных. Попробуйте позже.');
+            });
+        });
         
         // Функция поиска игрока
         function searchPlayer() {
-            if (isLoading) return;
-            
             const nickname = document.getElementById('nicknameInput').value.trim();
             const resultDiv = document.getElementById('result');
-            const errorDiv = document.getElementById('error');
-            const searchBtn = document.getElementById('searchButton');
-            
-            // Скрыть предыдущие результаты
-            resultDiv.style.display = 'none';
-            errorDiv.style.display = 'none';
+            const historyDiv = document.getElementById('history');
             
             if (!nickname) {
-                showError('Введите ник игрока для поиска');
+                resultDiv.innerHTML = '<div class="error">Введите ник игрока</div>';
+                resultDiv.style.display = 'block';
+                historyDiv.style.display = 'none';
                 return;
             }
             
-            if (!playerData) {
-                showError('Данные еще загружаются. Подождите немного...');
+            if (!currentData || !currentHistory) {
+                showError('Данные еще загружаются. Подождите немного.');
                 return;
             }
             
-            // Показать состояние загрузки на кнопке
-            searchBtn.textContent = 'Поиск...';
-            searchBtn.classList.add('loading');
-            searchBtn.disabled = true;
-            isLoading = true;
-            
-            // Имитация задержки для лучшего UX
-            setTimeout(() => {
-                performSearch(nickname);
-                
-                // Сбросить состояние кнопки
-                searchBtn.textContent = 'Найти зарплату';
-                searchBtn.classList.remove('loading');
-                searchBtn.disabled = false;
-                isLoading = false;
-            }, 300);
-        }
-        
-        // Выполнение поиска
-        function performSearch(nickname) {
             const player = findPlayer(nickname);
             
             if (player) {
                 displayPlayerInfo(player);
+                displayPlayerHistory(player.nickname);
             } else {
-                showError(`Игрок "${nickname}" не найден. Проверьте правильность ника.`);
+                resultDiv.innerHTML = '<div class="error">Игрок не найден. Проверьте правильность ника.</div>';
+                historyDiv.style.display = 'none';
+                resultDiv.style.display = 'block';
             }
         }
         
-        // Поиск игрока (регистронезависимый)
+        // Поиск игрока с учетом регистра
         function findPlayer(nickname) {
-            return playerData.players.find(p => 
+            return currentData.players.find(p => 
                 p.nickname.toLowerCase() === nickname.toLowerCase()
             );
         }
@@ -441,33 +537,17 @@
         // Отображение информации об игроке
         function displayPlayerInfo(player) {
             const resultDiv = document.getElementById('result');
-            const errorDiv = document.getElementById('error');
-            
-            // Скрыть ошибку если была показана
-            errorDiv.style.display = 'none';
-            
-            // Форматирование даты вступления
-            const joinDate = new Date(player.join_date);
-            const formattedJoinDate = joinDate.toLocaleDateString('ru-RU', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            });
-            
-            // Расчет дней в гильдии (если не предоставлено)
-            const daysInGuild = player.days_in_guild || 
-                Math.floor((new Date() - joinDate) / (1000 * 60 * 60 * 24));
             
             resultDiv.innerHTML = `
                 <h3>👤 ${player.nickname}</h3>
-                <div class="salary">${formatNumber(player.total_salary)} серебра</div>
+                <div class="salary">${player.total_salary} серебра</div>
                 <div class="total-summary">
                     <div class="summary-item">
                         <div class="summary-value">${player.rank}</div>
                         <div class="summary-label">Текущее звание</div>
                     </div>
                     <div class="summary-item">
-                        <div class="summary-value">${daysInGuild}</div>
+                        <div class="summary-value">${player.days_in_guild}</div>
                         <div class="summary-label">Дней в гильдии</div>
                     </div>
                     <div class="summary-item">
@@ -475,76 +555,180 @@
                         <div class="summary-label">Рекрутер</div>
                     </div>
                 </div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <strong>Дата вступления:</strong> ${formattedJoinDate}
-                    </div>
-                    ${player.is_recruiter ? `
-                    <div class="info-item">
-                        <strong>Статус:</strong> Активный рекрутер
-                    </div>
-                    ` : ''}
-                </div>
-                <div class="last-update">
-                    <small>Обновлено: ${playerData.last_updated || 'неизвестно'}</small>
+                <div class="info-item"><strong>Дата вступления:</strong> ${player.join_date}</div>
+                <div class="last-update" style="margin-top: 20px;">
+                    <small>Обновлено: ${currentData.last_updated}</small>
                 </div>
             `;
             
             resultDiv.style.display = 'block';
-            
-            // Скролл к результатам на мобильных устройствах
-            if (window.innerWidth < 768) {
-                resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
         }
         
-        // Показать ошибку
+        // Отображение истории игрока
+        function displayPlayerHistory(nickname) {
+            const historyDiv = document.getElementById('history');
+            
+            // Фильтруем историю по нику игрока
+            const playerHistory = currentHistory.history.filter(item => 
+                item.player_nickname.toLowerCase() === nickname.toLowerCase()
+            );
+            
+            // Сортируем по дате (сначала новые)
+            playerHistory.sort((a, b) => new Date(b.operation_date) - new Date(a.operation_date));
+            
+            // Рассчитываем статистику
+            let totalEarned = 0;
+            let totalPaid = 0;
+            let transactionCount = playerHistory.length;
+            
+            playerHistory.forEach(item => {
+                if (item.operation_type === 'Начисление' || item.operation_type === 'Награда рекрутера') {
+                    totalEarned += item.amount;
+                } else if (item.operation_type === 'Выплата') {
+                    totalPaid += item.amount;
+                }
+            });
+            
+            if (playerHistory.length > 0) {
+                let historyHTML = `
+                    <h4>📜 История операций игрока ${nickname}</h4>
+                    <div class="total-summary">
+                        <div class="summary-item">
+                            <div class="summary-value">${transactionCount}</div>
+                            <div class="summary-label">Всего операций</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value">${totalEarned} серебра</div>
+                            <div class="summary-label">Всего заработано</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value">${totalPaid} серебра</div>
+                            <div class="summary-label">Всего выплачено</div>
+                        </div>
+                    </div>
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Дата</th>
+                                <th>Тип операции</th>
+                                <th>Сумма</th>
+                                <th>Комментарий</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+                
+                playerHistory.forEach(item => {
+                    // Определяем класс для типа операции
+                    let operationClass = '';
+                    switch(item.operation_type) {
+                        case 'Начисление':
+                            operationClass = 'operation-type-nachislenie';
+                            break;
+                        case 'Выплата':
+                            operationClass = 'operation-type-vyplata';
+                            break;
+                        case 'Награда рекрутера':
+                            operationClass = 'operation-type-nagrada';
+                            break;
+                        case 'Отмена начисления':
+                        case 'Отмена выплаты':
+                            operationClass = 'operation-type-otmena';
+                            break;
+                        default:
+                            operationClass = '';
+                    }
+                    
+                    // Определяем класс для суммы
+                    let amountClass = '';
+                    if (item.amount > 0) {
+                        amountClass = 'positive-amount';
+                    } else if (item.amount < 0) {
+                        amountClass = 'negative-amount';
+                    } else {
+                        amountClass = 'neutral-amount';
+                    }
+                    
+                    // Форматируем дату
+                    const date = new Date(item.operation_date);
+                    const formattedDate = date.toLocaleDateString('ru-RU', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                    
+                    // Форматируем сумму со знаком
+                    const formattedAmount = item.amount > 0 ? `+${item.amount}` : item.amount.toString();
+                    
+                    // Добавляем информацию о часах активности, если есть
+                    let comment = item.comment || '';
+                    if (item.hours && item.hours > 0 && item.activity_name) {
+                        comment += ` (${item.activity_name}, ${item.hours} час.)`;
+                    }
+                    
+                    historyHTML += `
+                        <tr>
+                            <td>${formattedDate}</td>
+                            <td><span class="operation-type ${operationClass}">${item.operation_type}</span></td>
+                            <td class="${amountClass}">${formattedAmount} серебра</td>
+                            <td>${comment}</td>
+                        </tr>`;
+                });
+                
+                historyHTML += `
+                        </tbody>
+                    </table>`;
+                
+                historyDiv.innerHTML = historyHTML;
+            } else {
+                historyDiv.innerHTML = `
+                    <h4>📜 История операций игрока ${nickname}</h4>
+                    <div class="empty-history">
+                        <p>История операций отсутствует</p>
+                    </div>`;
+            }
+            
+            historyDiv.style.display = 'block';
+        }
+        
+        // Функция показа ошибки
         function showError(message) {
-            const errorDiv = document.getElementById('error');
             const resultDiv = document.getElementById('result');
-            
-            resultDiv.style.display = 'none';
-            errorDiv.innerHTML = message;
-            errorDiv.style.display = 'block';
-            
-            // Скролл к ошибке на мобильных устройствах
-            if (window.innerWidth < 768) {
-                errorDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            resultDiv.innerHTML = `<div class="error">${message}</div>`;
+            resultDiv.style.display = 'block';
+            document.getElementById('history').style.display = 'none';
         }
         
-        // Форматирование чисел с пробелами
-        function formatNumber(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-        }
-        
-        // Поиск по нажатию Enter
-        document.getElementById('nicknameInput').addEventListener('keypress', (e) => {
+        // Поиск при нажатии Enter
+        document.getElementById('nicknameInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 searchPlayer();
             }
         });
         
-        // Автофокус на поле ввода при загрузке (для мобильных клавиатур)
-        if ('virtualKeyboard' in navigator) {
-            document.getElementById('nicknameInput').addEventListener('focus', () => {
-                navigator.virtualKeyboard.show();
-            });
-        }
-        
-        // Обновление данных каждые 5 минут
+        // Автоматическое обновление данных каждые 5 минут
         setInterval(() => {
-            if (document.visibilityState === 'visible') {
+            if (currentData) {
+                console.log('Автоматическое обновление данных...');
                 loadData();
             }
         }, 5 * 60 * 1000);
         
-        // Обновление данных при возвращении на вкладку
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') {
-                loadData();
-            }
-        });
+        function loadData() {
+            const cacheBuster = '?t=' + Date.now();
+            
+            Promise.all([
+                fetch('data.json' + cacheBuster).then(r => r.json()),
+                fetch('history.json' + cacheBuster).then(r => r.json())
+            ])
+            .then(([data, history]) => {
+                currentData = data;
+                currentHistory = history;
+                console.log('Данные обновлены:', new Date().toLocaleTimeString());
+            })
+            .catch(error => console.error('Ошибка обновления данных:', error));
+        }
     </script>
 </body>
 </html>
