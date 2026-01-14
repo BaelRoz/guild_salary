@@ -3,6 +3,276 @@
     "history": [
         {
             "activity_name": "",
+            "amount": 850000,
+            "comment": "Полная выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-14 19:11:19",
+            "operation_type": "Выплата",
+            "player_nickname": "BaelRoz",
+            "player_rank": "маршал"
+        },
+        {
+            "activity_name": "",
+            "amount": 950000,
+            "comment": "Полная выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-14 19:09:27",
+            "operation_type": "Выплата",
+            "player_nickname": "ByrDuk",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "",
+            "amount": 450000,
+            "comment": "Полная выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-14 19:08:14",
+            "operation_type": "Выплата",
+            "player_nickname": "Emren",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "",
+            "amount": 1300000,
+            "comment": "Полная выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-14 19:07:06",
+            "operation_type": "Выплата",
+            "player_nickname": "surs1chw",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "",
+            "amount": 850000,
+            "comment": "Полная выплата зарплаты",
+            "hours": 0,
+            "operation_date": "2026-01-14 19:05:36",
+            "operation_type": "Выплата",
+            "player_nickname": "Hithoel",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Награда за вступление",
+            "amount": 400000,
+            "comment": "Активность: Награда за вступление (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 19:01:41",
+            "operation_type": "Начисление",
+            "player_nickname": "ColdBorsch",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Награда за вступление",
+            "amount": 400000,
+            "comment": "Активность: Награда за вступление (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 19:01:35",
+            "operation_type": "Начисление",
+            "player_nickname": "XSMrxses",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Статик(т8+)",
+            "amount": 400000,
+            "comment": "Активность: Статик(т8+) (1 час.) × коэффициент 1",
+            "hours": 1,
+            "operation_date": "2026-01-14 19:01:21",
+            "operation_type": "Начисление",
+            "player_nickname": "Emren",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Статик(т8+)",
+            "amount": 800000,
+            "comment": "Активность: Статик(т8+) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-14 19:01:11",
+            "operation_type": "Начисление",
+            "player_nickname": "surs1chw",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Статик(т8+)",
+            "amount": 800000,
+            "comment": "Активность: Статик(т8+) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-14 19:01:11",
+            "operation_type": "Начисление",
+            "player_nickname": "SHmiSHnoy",
+            "player_rank": "сержант"
+        },
+        {
+            "activity_name": "Статик(т8+)",
+            "amount": 800000,
+            "comment": "Активность: Статик(т8+) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-14 19:01:11",
+            "operation_type": "Начисление",
+            "player_nickname": "Hithoel",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Статик(т8+)",
+            "amount": 800000,
+            "comment": "Активность: Статик(т8+) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-14 19:01:11",
+            "operation_type": "Начисление",
+            "player_nickname": "ByrDuk",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Статик(т8+)",
+            "amount": 800000,
+            "comment": "Активность: Статик(т8+) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-14 19:01:11",
+            "operation_type": "Начисление",
+            "player_nickname": "BaelRoz",
+            "player_rank": "маршал"
+        },
+        {
+            "activity_name": "Статик(т8+)",
+            "amount": 800000,
+            "comment": "Активность: Статик(т8+) (2 час.) × коэффициент 1",
+            "hours": 2,
+            "operation_date": "2026-01-14 19:01:11",
+            "operation_type": "Начисление",
+            "player_nickname": "AtilusPro",
+            "player_rank": "главнокомандующий"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "AtilusPro",
+            "player_rank": "главнокомандующий"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "BaelRoz",
+            "player_rank": "маршал"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "ByrDuk",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "Emren",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "Esiket",
+            "player_rank": "рядовой"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "HeshRui",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "Hithoel",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "Korezhok228",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "Pahika",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "SHmiSHnoy",
+            "player_rank": "сержант"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "Shushuk",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "XSMrxses",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "Ежедневная зарплата",
+            "amount": 50000,
+            "comment": "Активность: Ежедневная зарплата (1 час.) - без учета звания",
+            "hours": 1,
+            "operation_date": "2026-01-14 13:37:10",
+            "operation_type": "Начисление",
+            "player_nickname": "surs1chw",
+            "player_rank": "новобранец"
+        },
+        {
+            "activity_name": "",
             "amount": 480000,
             "comment": "Частичная выплата (480000 из 480000)",
             "hours": 0,
@@ -612,8 +882,8 @@
             "player_rank": "новобранец"
         }
     ],
-    "last_updated": "13.01.2026 22:38",
-    "total_earned": 7950000,
-    "total_paid": 4970000,
-    "total_records": 61
+    "last_updated": "14.01.2026 22:16",
+    "total_earned": 14600000,
+    "total_paid": 9370000,
+    "total_records": 88
 }

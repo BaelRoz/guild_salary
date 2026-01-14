@@ -1,17 +1,17 @@
 {
     "currency": "серебра",
-    "last_updated": "13.01.2026 22:38",
+    "last_updated": "14.01.2026 22:16",
     "players": [
         {
-            "days_in_guild": 353,
+            "days_in_guild": 354,
             "is_recruiter": false,
             "join_date": "2025-01-26",
             "nickname": "AtilusPro",
             "rank": "главнокомандующий",
-            "total_salary": 830000
+            "total_salary": 1680000
         },
         {
-            "days_in_guild": 136,
+            "days_in_guild": 137,
             "is_recruiter": false,
             "join_date": "2025-08-31",
             "nickname": "BaelRoz",
@@ -19,15 +19,23 @@
             "total_salary": 0
         },
         {
-            "days_in_guild": 4,
+            "days_in_guild": 5,
             "is_recruiter": false,
             "join_date": "2026-01-10",
             "nickname": "ByrDuk",
             "rank": "новобранец",
-            "total_salary": 100000
+            "total_salary": 0
         },
         {
-            "days_in_guild": 2,
+            "days_in_guild": 1,
+            "is_recruiter": false,
+            "join_date": "2026-01-14",
+            "nickname": "ColdBorsch",
+            "rank": "новобранец",
+            "total_salary": 400000
+        },
+        {
+            "days_in_guild": 3,
             "is_recruiter": false,
             "join_date": "2026-01-12",
             "nickname": "Emren",
@@ -35,15 +43,15 @@
             "total_salary": 0
         },
         {
-            "days_in_guild": 3,
+            "days_in_guild": 4,
             "is_recruiter": false,
             "join_date": "2026-01-11",
             "nickname": "HeshRui",
             "rank": "новобранец",
-            "total_salary": 500000
+            "total_salary": 550000
         },
         {
-            "days_in_guild": 2,
+            "days_in_guild": 3,
             "is_recruiter": false,
             "join_date": "2026-01-12",
             "nickname": "Hithoel",
@@ -51,70 +59,62 @@
             "total_salary": 0
         },
         {
-            "days_in_guild": 3,
+            "days_in_guild": 4,
             "is_recruiter": false,
             "join_date": "2026-01-11",
             "nickname": "Korezhok228",
             "rank": "новобранец",
-            "total_salary": 100000
+            "total_salary": 150000
         },
         {
-            "days_in_guild": 3,
+            "days_in_guild": 4,
             "is_recruiter": false,
             "join_date": "2026-01-11",
             "nickname": "Pahika",
             "rank": "новобранец",
-            "total_salary": 800000
+            "total_salary": 850000
         },
         {
-            "days_in_guild": 6,
+            "days_in_guild": 7,
             "is_recruiter": false,
             "join_date": "2026-01-08",
             "nickname": "Shushuk",
             "rank": "новобранец",
-            "total_salary": 100000
+            "total_salary": 150000
         },
         {
-            "days_in_guild": 1,
+            "days_in_guild": 2,
             "is_recruiter": false,
             "join_date": "2026-01-13",
             "nickname": "XSMrxses",
             "rank": "новобранец",
-            "total_salary": 0
+            "total_salary": 450000
         },
         {
-            "days_in_guild": 1,
+            "days_in_guild": 3,
             "is_recruiter": false,
-            "join_date": "2026-01-13",
-            "nickname": "n1mq",
+            "join_date": "2026-01-12",
+            "nickname": "surs1chw",
             "rank": "новобранец",
             "total_salary": 0
         },
         {
             "days_in_guild": 2,
             "is_recruiter": false,
-            "join_date": "2026-01-12",
-            "nickname": "surs1chw",
-            "rank": "новобранец",
-            "total_salary": 450000
-        },
-        {
-            "days_in_guild": 1,
-            "is_recruiter": false,
             "join_date": "2026-01-13",
             "nickname": "Esiket",
             "rank": "рядовой",
-            "total_salary": 0
+            "total_salary": 50000
         },
         {
-            "days_in_guild": 4,
+            "days_in_guild": 5,
             "is_recruiter": false,
             "join_date": "2026-01-10",
             "nickname": "SHmiSHnoy",
             "rank": "сержант",
-            "total_salary": 100000
+            "total_salary": 950000
         }
     ],
     "total_players": 14,
-    "total_salary_pool": 2980000
+    "total_salary_pool": 5230000
 }
